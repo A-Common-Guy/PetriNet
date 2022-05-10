@@ -5,6 +5,9 @@ import networkx as nx
 import matplotlib.pyplot as plt
 from plotly.graph_objs import *
  
+
+
+# C matrix and M0 vector
 net=Net(np.array([
     [-1,-1,0,0,2],
     [1,-1,0,0,0],
@@ -14,20 +17,22 @@ net=Net(np.array([
     [0,0,0,1,-1],
     [-1,1,0,0,0]
     ]),np.array([2,0,0,0,0,0,1]))
-#print(net.transEnabled(np.array([1,1,1,1,1,1])))
-#print(net.p_reduce())
+
+
 net.simulate(net.M0)
 print(net.mark)
 graph=net.getGraph()
 
 
-print("p-reduce\n",net.p_reduce())
+
+print("p-invariants\n",net.p_reduce())
 
 G=graph
 
 pos=nx.spiral_layout(G)
-print(pos)
-print(G.edges())
+
+#print(pos)
+#print(G.edges())
 
 edge_x = []
 edge_y = []
